@@ -1,0 +1,40 @@
+import random
+
+print("Welcome to the number guessing game!")
+playAgain = 'y'
+
+while(playAgain == "y"):
+  print("I'm thinking of a number between 1 and 10.")
+  print("Try to guess the number.")
+  lives = 3
+  number = random.randint(1, 10)
+  
+  while lives > 0:
+    print("Lives remaining: " + str(lives))
+    guess = int(input("Enter your guess: "))
+    
+    if(guess != number):
+      print("Sorry, that's not the number I was thinking of.")
+    lives -= 1
+  if(lives == 0):
+    print("You lose! The number was " + str(number) + ".")
+    playAgain = input("Do you want to play again? (y/n) ") 
+    
+    if(playAgain == "n"):
+      break
+    elif(playAgain == "y"):
+      continue  
+    else:
+      print("Invalid input. Exiting game.")
+      break
+    
+  else:
+    print("Congratulations! You guessed the number.")
+    playAgain = input("Do you want to play again? (y/n) ") 
+    if(playAgain == "n"):
+      break
+    elif(playAgain == "y"):
+      continue  
+    else:
+      print("Invalid input. Exiting game.")
+      break
